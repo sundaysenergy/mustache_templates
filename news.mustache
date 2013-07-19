@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <title>test</title>
+  <style>
+    a {text-decoration: none;}
+    img {
+      display: block;
+      float: left;
+      opacity: .7;
+    }
+    img:hover {opacity: 1;}
+  </style>
+</head>
+<body>
+
+  {{#hits.hits}}
+  <div class="item ">
+    <a href="{{_source.link}}" title="{{_source.message}}">
+      <img alt="{{_source.name}}" src="{{_source.picture}}" />
+    </a>
+
+    <ul class="details">
+      <li>
+        <h4><a href="{{_source.link}}" class="">{{_source.name}}</a></h4>
+      </li>
+      <li class="dateAuthor">
+        {{_source.created_time}}<span class="expandedView">, {{_source.caption}}</span>
+      </li>
+      <li class="teaser expandedView">
+        {{_source.description}}
+      </li>
+      <li class="commentsAndMore expandedView">
+        <span class="readMore">
+          <a href="{{_source.link}}" class="button-small">Read More</a>
+        </span>
+      </li>
+      <li class="message">
+        {{_source.message}}
+      </li>
+      <li>
+        <a href="http://northmpls.webscript.io/action?action=added&type={{_type}}&id={{_id}}">Approve</a> -
+        <a href="http://northmpls.webscript.io/action?action=removed&type={{_type}}&id={{_id}}">Remove</a>
+      </li>
+    </ul>
+
+    <span class="clearAll"></span>
+  </div>
+  {{/hits.hits}}
+
+</body>
+</html>
