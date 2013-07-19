@@ -2,57 +2,6 @@
 <html>
 <head>
   <title>test</title>
-  <style>
-    h4 {
-      font-family: "proxima-nova", Helvetica, Arial, sans-serif;
-      font-size: 28px;
-      font-weight: 300;
-      color: #23323f;
-      margin: 5px 0 10px 0;
-      line-height: 26px;
-    }
-    h4 a {
-      color: #d53708;
-    }
-    h4 a:hover {
-      color: #0b5b87;
-      text-decoration: none;
-    }
-    a {
-      text-decoration: none;
-    }
-    img {
-      display: block;
-      float: left;
-      opacity: .7;
-    }
-    ul {
-      list-style-type: none;
-    }
-    li {
-      display: list-item;
-    }
-    img:hover {
-      opacity: 1;
-    }
-    div.item {
-      border-bottom: 1px solid #CCC;
-    }
-    .readMore .button-small {
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -o-border-radius: 0;
-      border-radius: 0;
-      border: none;
-      background: url(https://s3.amazonaws.com/assets.ngin.com/site_files/3702/i/readMore.png) right center no-repeat;
-      text-shadow: none;
-      font-family: "proxima-nova", Helvetica, Arial, sans-serif;
-      font-weight: 500;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-  </style>
 </head>
 <body>
 
@@ -61,6 +10,16 @@
   <li><a href="{{ url }}">{{ name }}</a></li>
   {{/existing_list}}
   </ul>
-
+  <form id="list_redirect">
+    <input type="text" id="list_name">
+    <button type="submit">
+  </form>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $('#list_redirect').submit(function(e) {
+      e.preventDefault();
+      window.location = 'http://admin.cape.io/feed/' + $('#list_name').val();
+    });
+  </script>
 </body>
 </html>
