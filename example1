@@ -1,4 +1,4 @@
-{{#hits}}
+{{#hits.hits}}
 <div class="item ">
   <a href="{{_source.link}}" title="{{_source.message}}">
     <img alt="{{_source.name}}" src="{{_source.picture}}" />
@@ -21,4 +21,4 @@
 
   <span class="clearAll"></span>
 </div>
-{{/hits}}
+{{/hits.hits}}
