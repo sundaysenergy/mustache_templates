@@ -36,12 +36,23 @@
     </div>
   
     <div class="container">
-      <h3>Existing lists</h3>
-      <ul>
-      {{#existing_list}}
-      <li><a href="{{ url }}">{{ name }}</a></li>
-      {{/existing_list}}
+      
+      <ul class="nav nav-tabs">
+        <li class="dropdown">
+          <a class="dropdown-toggle"
+             data-toggle="dropdown"
+             href="#">
+              Existing Lists
+              <b class="caret"></b>
+            </a>
+          <ul class="dropdown-menu">
+            {{#existing_list}}
+            <li><a href="{{ url }}">{{ name }}</a></li>
+            {{/existing_list}}
+          </ul>
+        </li>
       </ul>
+      
       <h3>Start a new list</h3>
       <form id="list_redirect" class="navbar-form pull-left">
         <div>
