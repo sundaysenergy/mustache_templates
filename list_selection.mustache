@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Feed editor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,22 +30,28 @@
               <li class="active"><a href="/feed">Home</a></li>
               <li><a href="/auth/logout">Logout</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
   
     <div class="container">
+      <h3>Existing lists</h3>
       <ul>
       {{#existing_list}}
       <li><a href="{{ url }}">{{ name }}</a></li>
       {{/existing_list}}
       </ul>
-      <form id="list_redirect">
-        <input type="text" id="list_name">
-        <button type="submit" class="btn btn-info">
-          Start a new list
-        </button>
+      <h3>Start a new list</h3>
+      <form id="list_redirect" class="navbar-form pull-left">
+        <div>
+          <input type="text" id="list_name">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">
+            Start a new list
+          </button>
+        </div>
       </form>
     </div>
 
