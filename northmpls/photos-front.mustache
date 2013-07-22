@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Northmpls photos</title>
+  <title>Instagram Photos Taken or Liked by Northmpls</title>
   <style>
     a {text-decoration: none;}
     img {
@@ -16,7 +16,7 @@
 
 {{#hits.hits}}
   <a href="{{{_source.link}}}" target="_blank">
-    <img src="{{{_source.images.thumbnail.url}}}" alt="" height="{{height}}" width="{{width}}" />
+    <img src="{{{_source.images.thumbnail.url}}}" alt="" height="{{_source.images.thumbnail.height}}" width="{{_source.images.thumbnail.width}}" />
   </a>
 {{/hits.hits}}
 
