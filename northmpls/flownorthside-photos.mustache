@@ -50,13 +50,15 @@
     <!--start: Wrapper-->
     <div id="wrapper">
 
-<!--       <div id="filters">
+      <div id="filters">
         <ul class="option-set" data-option-key="filter">
-<li><a href="#filter" class="selected" data-option-value="*">All</a></li>
-<li>/</li>
-<li><a href="#filter" data-option-value=".churches">Churches</a></li>
+          <li><a href="#filter" class="selected" data-option-value="*">All</a></li>
+        {{#facets.tag.terms}}
+          <li>/</li>
+          <li><a href="#filter" data-option-value=".{{term}}">{{term}}</a></li>
+        {{facets.tag.terms}}
         </ul>
-      </div> -->
+      </div>
 
       <!-- start: Portfolio -->
       <div id="wall" class="row-fluid">
