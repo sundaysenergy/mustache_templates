@@ -9,8 +9,10 @@
   </style>
 </head>
 <body>
-{{#hits}}<a href="{{{_source.link}}}" target="_blank">
-<img src="{{{_source.images.thumbnail.url}}}" alt="" height="{{height}}" width="{{width}}" />
-</a>{{/hits}}
+{{#hits.hits}}
+  <a href="{{{_source.link}}}" target="_blank">
+    <img src="{{{_source.images.thumbnail.url}}}" alt="" height="{{height}}" width="{{width}}" />
+  </a>
+{{/hits.hits}}
 </body>
 </html>

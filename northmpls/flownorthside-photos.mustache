@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- start: Meta -->
+  <meta charset="utf-8">
+  <title>#flownorthside Photo Contest</title>
+  <meta name="description" content="flownorthside photo contest"/>
+  <meta name="keywords" content="flow, art, north, minneapolis, 365, images, pictures, photos" />
+  <!-- end: Meta -->
+
+  <!-- start: Mobile Specific -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- end: Mobile Specific -->
+
+    <!-- start: CSS -->
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+  <link href="http://css.northmpls.org/isotope/style.css" rel="stylesheet" type="text/css">
+  <link href="http://css.northmpls.org/isotope/layerslider.css" rel="stylesheet" type="text/css">
+
+  <!--[if lt IE 9 ]>
+    <link href="css/styleIE.css" rel="stylesheet">
+  <![endif]-->
+
+  <!--[if IE 9 ]>
+    <link href="css/styleIE9.css" rel="stylesheet">
+  <![endif]-->
+
+  <!-- end: CSS -->
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+  <!-- start: Container -->
+  <div class="container">
+
+    <div id="page-title">
+      <h2>#flownorthside</h2>
+    </div>
+
+    <!--start: Wrapper-->
+    <div id="wrapper">
+
+      <div id="filters">
+        <ul class="option-set" data-option-key="filter">
+<li><a href="#filter" class="selected" data-option-value="*">All</a></li>
+<li>/</li>
+<li><a href="#filter" data-option-value=".churches">Churches</a></li>
+        </ul>
+      </div>
+
+      <!-- start: Portfolio -->
+      <div id="wall" class="row-fluid">
+
+      {{#hits.hits}}
+        <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}">
+          <div class="picture">
+            <a href="{{{_source.link}}}" title="" class="image" rel="image">
+              <img src="{{{_source.images.thumbnail.url}}}" alt="" width="{{_source.images.thumbnail.width}}" height="{{_source.images.thumbnail.height}}" />
+            </a>
+            <div class="description">
+              <p>{{_source.caption.text}}</p>
+            </div>
+            <div class="meta">
+              <span><i class="icon-calendar"></i>{{_source.caption.created_time}}</span>
+              <span><i class="icon-user"></i> <a href="http://instagram.com/{{_source.user.username}}">{{_source.user.username}}</a></span>
+              <span><i class="icon-heart-empty"></i>{{_source.likes.count}}</span>
+            </div>
+          </div>
+        </div>
+      {{/hits.hits}}
+
+      </div>
+      <!-- end: Portfolio -->
+
+    </div>
+    <!-- end: Wrapper  -->
+
+  </div>
+  <!--end: Container-->
+
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/isotope/1.5.25/jquery.isotope.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/2.1.0/jquery.imagesloaded.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.1/jquery.flexslider-min.js"></script>
+<script src="//css.northmpls.org/isotope/js/carousel.js"></script>
+<script src="//css.northmpls.org/isotope/jquery.cslider.js"></script>
+<script src="//css.northmpls.org/isotope/slider.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="//css.northmpls.org/isotope/layerslider.kreaturamedia.jquery.js"></script>
+
+<script src="//css.northmpls.org/isotope/js/excanvas.js"></script>
+
+<script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script defer="defer" src="//cdnjs.cloudflare.com/ajax/libs/retina.js/1.0.1/retina.js"></script>
+<script defer="defer" src="//css.northmpls.org/isotope/custom.js"></script>
+<!-- end: Java Script -->
+
+</body>
+</html>
