@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{user}} photos</title>
+  <style>
+    a {text-decoration: none;}
+    img {opacity: .7;}
+    img:hover {opacity: 1;}
+  </style>
+</head>
+<body>
+{{#hits.hits}}
+  <a href="{{{_source.link}}}" target="_blank">
+    <img src="{{{_source.images.thumbnail.url}}}" alt="" height="{{_source.images.thumbnail.height}}" width="{{_source.images.thumbnail.width}}" />
+  </a>
+{{/hits.hits}}
+</body>
+</html>
