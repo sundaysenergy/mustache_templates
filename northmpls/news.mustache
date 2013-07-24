@@ -83,15 +83,15 @@
             <a href="{{_source.link}}" class="button-small">Read More</a>
           </span>
         </li>
+      {{#cape_io.admin}}
         <li class="message">
           {{_source.message}}
         </li>
-        {{#cape_io.admin}}
         <li>
           <a href="http://cape.webscript.io/flag?action=added&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}">Approve</a> -
           <a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}">Remove</a>
         </li>
-        {{/cape_io.admin}}
+      {{/cape_io.admin}}
       </ul>
     </div>
   </div>
