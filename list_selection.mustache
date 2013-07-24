@@ -14,7 +14,7 @@
       }
     </style>
   </head>
-  
+
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -34,11 +34,11 @@
         </div>
       </div>
     </div>
-  
+
     <div class="container">
-      
+
       <h4>Select a list to edit:</h4>
-      
+
       <ul class="nav nav-pills">
         <li class="dropdown">
           <a class="dropdown-toggle"
@@ -48,13 +48,15 @@
               <b class="caret"></b>
             </a>
           <ul class="dropdown-menu">
-            {{#existing_list}}
-            <li><a href="{{ url }}">{{ name }}</a></li>
-            {{/existing_list}}
+
+            {{#terms}}
+              <li><a href="{{ url }}">{{ term }} ({{ count }})</a></li>
+            {{/terms}}
+
           </ul>
         </li>
       </ul>
-      
+
       <h4>Start a new list</h4>
       <form id="list_redirect" class="navbar-form pull-left">
         <div>
