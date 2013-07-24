@@ -23,6 +23,9 @@
     a {
       text-decoration: none;
     }
+    a.picture {
+      margin: 0 15px 20px 0;
+    }
     img {
       display: block;
       float: left;
@@ -62,7 +65,7 @@
   <div class="item row">
     <div class="span2">
       {{#_source.cape_io.picture}}
-      <a href="{{_source.link}}" title="{{_source.message}}">
+      <a href="{{_source.link}}" title="{{_source.message}}" class="picture">
         <img class="img-circle" alt="{{_source.name}}" src="http://{{_source.cape_io.picture.host}}.img.labori.us/c75x75/{{_source.cape_io.picture.path}}" width="75" height="75" />
       </a>
       {{/_source.cape_io.picture}}
