@@ -61,9 +61,11 @@
 {{#hits.hits}}
   <div class="item row">
     <div class="span2">
+      {{#cape_io.picture}}
       <a href="{{_source.link}}" title="{{_source.message}}">
-        <img class="img-circle" alt="{{_source.name}}" src="{{_source.picture}}" width="75" height="75" />
+        <img class="img-circle" alt="{{_source.name}}" src="http://{{cape_io.picture.host}}.img.labori.us/c75x75/{{cape_io.picture.path}}" width="75" height="75" />
       </a>
+      {{/cape_io.picture}}
     </div>
     <div class="span10">
       <ul class="details">
