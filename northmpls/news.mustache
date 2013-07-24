@@ -101,7 +101,14 @@
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 {{#cape_io.admin}}
-  <a href="http://cape.webscript.io/compile?list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}&container=cdn.northmpls.org" title="COMPILE!">
+  <ul>
+  <li>
+    <a href="http://cape.webscript.io/compile?list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}&container=cdn.northmpls.org" title="COMPILE!">COMPILE</a>
+  </li>
+  <li>
+    <a href="http://admin.cape.io/feed/{{cape_io.list}}?list_type=preview" title="PREVIEW!">PREVIEW</a>
+  </li>
+
 {{/cape_io.admin}}
 
 <!-- ! COMPILED TIME {{ cape_io.timestring }} !-->
