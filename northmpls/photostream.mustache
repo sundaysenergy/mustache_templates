@@ -76,6 +76,13 @@
               <!-- <span><i class="icon-calendar"></i>{{_source.caption.created_time}}</span> -->
               <span><i class="icon-user"></i> <a href="{{{_source.link}}}">{{_source.user.username}}</a></span>
               <span><i class="icon-heart"></i>{{_source.likes.count}}</span>
+              {{#cape_io.admin}}
+                - <span>
+                  <a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}" class="">
+                  <i class="icon-ban-circle"></i>
+                  </a>
+                </span>
+              {{/cape_io.admin}}
             </div>
           </div>
         </div>
