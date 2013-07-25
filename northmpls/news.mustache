@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>test</title>
+  <title>NorthMPLS News</title>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" />
   <style>
     h4 {
@@ -96,8 +96,8 @@
           {{_source.message}}
         </li>
         <li>
-          <a href="http://cape.webscript.io/flag?action=added&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}">Approve</a> -
-          <a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}">Remove</a>
+          <a href="http://cape.webscript.io/flag?action=added&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}"><i class="icon-thumbs-up"></i>Approve</a> -
+          <a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}"><i class="icon-ban-circle"></i> Remove</a>
         </li>
       {{/cape_io.admin}}
       </ul>
