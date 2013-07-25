@@ -70,7 +70,7 @@
   <div class="item row">
     <div class="span2">
       {{#_source.cape_io.picture}}
-      <a href="{{_source.link}}" title="{{_source.message}}" class="picture">
+      <a href="{{_source.link}}" title="{{_source.message}}" class="picture" target="_blank" >
         <img class="img-circle" alt="{{_source.name}}" src="http://{{_source.cape_io.picture.host}}.img.labori.us/c75x75/{{_source.cape_io.picture.path}}" width="75" height="75" />
       </a>
       {{/_source.cape_io.picture}}
@@ -78,7 +78,7 @@
     <div class="span10">
       <ul class="details">
         <li>
-          <h4><a href="{{_source.link}}" class="">{{_source.name}}</a></h4>
+          <h4><a href="{{_source.link}}" class="" target="_blank">{{_source.name}}</a></h4>
         </li>
         <li class="dateAuthor">
           {{_source.created_time}}<span class="expandedView">, {{_source.caption}}</span>
@@ -88,7 +88,7 @@
         </li>
         <li class="commentsAndMore expandedView">
           <span class="readMore">
-            <a href="{{_source.link}}" class="button-small">Read More</a>
+            <a href="{{_source.link}}" class="button-small" target="_blank">Read More</a>
           </span>
         </li>
       {{#cape_io.admin}}
