@@ -76,7 +76,13 @@
             {{/_source.cape_io.picture.original}}
 
             <div class="description">
-              <p>{{_source.message}}</p>
+              {{#_source.message}}
+                <p>{{_source.message}}</p>
+              {{/_source.message}}
+
+              {{#_source.description}}
+                <p>{{_source.description}}</p>
+              {{/_source.description}}
             </div>
 
             <div class="meta">
