@@ -72,7 +72,12 @@
               <img src="{{{_source.images.low_resolution.url}}}" alt="" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" />
             </a>
             <div class="description">
-              <p>{{_source.caption.text}}</p>
+              {{#_source.caption.text}}
+                <p>{{_source.caption.text}}</p>
+              {{/_source.caption.text}}
+              {{#_source.caption.story}}
+                <p>{{_source.caption.story}}</p>
+              {{/_source.caption.story}}
             </div>
             <div class="meta">
               <!-- <span><i class="icon-calendar"></i>{{_source.caption.created_time}}</span> -->
