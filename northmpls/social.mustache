@@ -67,16 +67,21 @@
 
       {{#hits.hits}}
         <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}" id="_index-_type-_id">
-          <div class="picture">
-            <a href="{{{_source.images.standard_resolution.url}}}" title="" class="image" rel="image">
+          <div class="{{_type}}">
+
+            {{#_source.cape_io.picture}}
+            <a href="http://{{_source.cape_io.picture.host}}.img.labori.us/612x612/{{_source.cape_io.picture.path}}" title="" class="image" rel="image">
               <img src="{{{_source.images.low_resolution.url}}}" alt="" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" />
             </a>
+            {{#_source.cape_io.picture}}
+
             <div class="description">
-              <p>{{_source.caption.text}}</p>
+              <p>{{_source.message}}</p>
             </div>
+
             <div class="meta">
               <!-- <span><i class="icon-calendar"></i>{{_source.caption.created_time}}</span> -->
-              <span><i class="icon-user"></i> <a href="{{{_source.link}}}" target="_blank">{{_source.user.username}}</a></span>
+              <span><i class="icon-user"></i> <a href="{{{_source.link}}}" target="_blank">{{_source.from.name}}</a></span>
               <span><i class="icon-heart"></i>{{_source.likes.count}}</span>
               {{#_source.location}}
                 <span>
