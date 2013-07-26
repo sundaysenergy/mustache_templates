@@ -69,11 +69,11 @@
         <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}" id="_index-_type-_id">
           <div class="{{_type}}">
 
-            {{#_source.cape_io.picture}}
+            {{#_source.cape_io.picture.original}}
             <a href="http://{{_source.cape_io.picture.host}}.img.labori.us/612x612/{{_source.cape_io.picture.path}}" title="" class="image" rel="image">
               <img src="{{{_source.images.low_resolution.url}}}" alt="" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" />
             </a>
-            {{/_source.cape_io.picture}}
+            {{/_source.cape_io.picture.original}}
 
             <div class="description">
               <p>{{_source.message}}</p>
