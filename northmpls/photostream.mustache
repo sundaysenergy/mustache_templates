@@ -66,7 +66,7 @@
       <div id="wall" class="row-fluid">
 
       {{#hits.hits}}
-        <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}" id="_index-_type-_id">
+        <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}" id="{{_index}}-{{_type}}-{{_id}}">
           <div class="picture">
             <a href="{{{_source.images.standard_resolution.url}}}" title="" class="image" rel="image">
               <img src="{{{_source.images.low_resolution.url}}}" alt="" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" />
