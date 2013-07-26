@@ -38,9 +38,11 @@
     <![endif]-->
 
 </head>
+<!-- Template version 1.14 -->
 <body>
 
-  <!-- start: Container -->
+<!-- {{hits.total}} photos -->
+
   <div class="container">
 
     <div id="page-title">
@@ -64,7 +66,7 @@
       <div id="wall" class="row-fluid">
 
       {{#hits.hits}}
-        <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}">
+        <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}" id="_index-_type-_id">
           <div class="picture">
             <a href="{{{_source.images.standard_resolution.url}}}" title="" class="image" rel="image">
               <img src="{{{_source.images.low_resolution.url}}}" alt="" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" />
@@ -76,6 +78,20 @@
               <!-- <span><i class="icon-calendar"></i>{{_source.caption.created_time}}</span> -->
               <span><i class="icon-user"></i> <a href="{{{_source.link}}}" target="_blank">{{_source.user.username}}</a></span>
               <span><i class="icon-heart"></i>{{_source.likes.count}}</span>
+              {{#_source.location}}
+                <span>
+                  <a href="https://maps.google.com/maps?q={{_source.location.latitude}},+{{_source.location.longitude}}" class="map {{_source.location.id}}" title="{{_source.location.name}}">
+                  <i class="icon-map-marker"></i>
+                  </a>
+                </span>
+              {{/_source.location}}
+              {{#cape_io.admin}}
+                - <span>
+                  <a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}" class="">
+                  <i class="icon-ban-circle"></i> Remove
+                  </a>
+                </span>
+              {{/cape_io.admin}}
             </div>
           </div>
         </div>
