@@ -71,7 +71,7 @@
 
             {{#_source.cape_io.picture.original}}
             <a href="{{_source.source}}" title="" class="image" rel="image">
-              <img src="http://{{_source.cape_io.picture.host}}.img.labori.us/612x612/{{_source.cape_io.picture.path}}" alt="" />
+              <img src="http://{{_source.cape_io.picture.host}}.img.labori.us/612x612{{_source.cape_io.picture.path}}" alt="" />
             </a>
             {{/_source.cape_io.picture.original}}
 
@@ -87,13 +87,19 @@
               {{#_source.story}}
                 <p>{{_source.story}}</p>
               {{/_source.story}}
-
             </div>
 
             <div class="meta">
               <!-- <span><i class="icon-calendar"></i>{{_source.caption.created_time}}</span> -->
-              <span><i class="icon-user"></i> <a href="{{{_source.link}}}" target="_blank">{{_source.from.name}}</a></span>
-              <span><i class="icon-heart"></i>{{_source.likes.count}}</span>
+              <span>
+                <i class="icon-user"></i>
+                <a href="{{{_source.link}}}" target="_blank">
+                  {{_source.from.name}}
+                </a>
+              </span>
+              <span>
+                <i class="icon-heart"></i>{{_source.likes.count}}
+              </span>
               {{#_source.location}}
                 <span>
                   <a href="https://maps.google.com/maps?q={{_source.location.latitude}},+{{_source.location.longitude}}" class="map {{_source.location.id}}" title="{{_source.location.name}}">
