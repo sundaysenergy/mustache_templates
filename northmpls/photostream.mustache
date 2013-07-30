@@ -68,7 +68,7 @@
       {{#hits.hits}}
         <div class="span3 item {{#_source.tags}}{{.}} {{/_source.tags}}" id="{{_index}}-{{_type}}-{{_id}}">
           <div class="picture">
-            <a href="{{{_source.images.standard_resolution.url}}}" title="" class="image" rel="image">
+            <a href="{{{_source.link}}}" title="" class="image" target="_blank">
               <img src="{{{_source.images.low_resolution.url}}}" alt="" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" />
             </a>
             <div class="description">
@@ -88,7 +88,7 @@
               {{#cape_io.admin}}
                 - <span>
                   <a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}" class="">
-                  <i class="icon-ban-circle"></i> Remove
+                    <i class="icon-ban-circle"></i> Remove
                   </a>
                 </span>
               {{/cape_io.admin}}
