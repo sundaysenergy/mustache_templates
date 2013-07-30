@@ -13,13 +13,13 @@
 <body>
 <div class="container">
   <div class="row">
+    {{#hits.hits}}
     <div class="photo col-2">
-      {{#hits.hits}}
-        <a href="{{{_source.link}}}" target="_blank" title="{{_source.caption.text}}">
-          <img src="{{{_source.images.thumbnail.url}}}" alt="{{_source.caption.text}}" height="{{_source.images.thumbnail.height}}" width="{{_source.images.thumbnail.width}}" />
-        </a>
-      {{/hits.hits}}
+      <a href="{{{_source.link}}}" target="_blank" title="{{_source.caption.text}}">
+        <img src="{{{_source.images.thumbnail.url}}}" alt="{{_source.caption.text}}" height="{{_source.images.thumbnail.height}}" width="{{_source.images.thumbnail.width}}" />
+      </a>
     </div>
+    {{/hits.hits}}
   </div>
 </div>
 </body>
