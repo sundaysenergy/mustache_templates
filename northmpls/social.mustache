@@ -75,11 +75,13 @@
             </a>
             {{/_source.cape_io.picture.original}}
 
-            <div class="description">
-              {{#_source.message}}
-                <p>{{_source.message}}</p>
-              {{/_source.message}}
+            {{#_source.message}}
+            <div class="quotes">
+              <p class="quote">{{_source.message}}</p>
+            </div>
+            {{/_source.message}}
 
+            <div class="description">
               {{#_source.description}}
                 <p>{{_source.description}}</p>
               {{/_source.description}}
