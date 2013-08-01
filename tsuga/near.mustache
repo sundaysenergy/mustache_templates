@@ -15,7 +15,7 @@
       <div class="row">
 
         {{#hits.hits}}
-          <div class="col-6 col-sm-4 col-lg-2">
+          <div class="col-6 col-sm-4 col-lg-2 {{#_source.tags}}{{.}} {{/_source.tags}}" id="{{_index}}-{{_type}}-{{_id}}">
             <a href="{{{_source.link}}}" title="{{_source.caption.text}}" class="image" target="_blank">
               <img src="{{{_source.images.low_resolution.url}}}" alt="{{_id}}" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" class="img-thumbnail" />
             </a>
