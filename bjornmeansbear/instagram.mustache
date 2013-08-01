@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>bjornmeansbear Instagram Photos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>bjornmeansbear Instagram Photos</h1>
+
+      <div class="row">
+
+        {{#hits.hits}}
+          <div class="col-6 col-sm-4 col-lg-2 {{#_source.tags}}{{.}} {{/_source.tags}}" id="{{_index}}-{{_type}}-{{_id}}">
+            <a href="{{{_source.link}}}" title="{{_source.caption.text}}" class="image" target="_blank">
+              <img src="{{{_source.images.low_resolution.url}}}" alt="{{_id}}" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" class="img-thumbnail" />
+            </a>
+            {{#_source.location}}
+              <span>
+                <a href="https://maps.google.com/maps?q={{_source.location.latitude}},+{{_source.location.longitude}}" class="map {{_source.location.id}}" title="{{_source.location.name}}" target="_blank">
+                <i class="icon-map-marker"></i>
+                </a>
+              </span>
+            {{/_source.location}}
+            <a href="{{{cape_io.flag_url}}}removed&id={{_id}}&index={{_index}}&type={{_type}}&result=json" class="remove" title="REMOVE">
+              <i class="icon-ban-circle"></i>
+            </a>
+            <a href="{{{cape_io.flag_url}}}added&id={{_id}}&index={{_index}}&type={{_type}}&result=json" class="add" title="ADD">
+              <i class="icon-thumbs-up"></i>
+            </a>
+          </div>
+        {{/hits.hits}}
+
+      </div>
+      <p>{{took}}</p>
+    </div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        var list_type = '{{cape_io.list_type}}'
+        $("a.remove").click(function(e) {
+          var url = $(this).attr('href');
+          $(this).parent().remove();
+          $.get(url);
+          return false;
+        });
+        if ('pending' == list_type) {
+          $("a.add").click(function(e) {
+            var url = $(this).attr('href');
+            $(this).parent().remove();
+            $.get(url);
+            return false;
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>
