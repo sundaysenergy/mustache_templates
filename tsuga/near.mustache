@@ -19,6 +19,13 @@
             <a href="{{{_source.link}}}" title="{{_source.caption.text}}" class="image" target="_blank">
               <img src="{{{_source.images.low_resolution.url}}}" alt="{{_id}}" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" class="img-thumbnail" />
             </a>
+            {{#_source.location}}
+              <span>
+                <a href="https://maps.google.com/maps?q={{_source.location.latitude}},+{{_source.location.longitude}}" class="map {{_source.location.id}}" title="{{_source.location.name}}" target="_blank">
+                <i class="icon-map-marker"></i>
+                </a>
+              </span>
+            {{/_source.location}}
             <a href="{{{cape_io.flag_url}}}removed&id={{_id}}&index={{_index}}&type={{_type}}" class="remove">
               <i class="icon-ban-circle"></i>
             </a>
