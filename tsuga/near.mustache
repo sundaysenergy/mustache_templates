@@ -47,7 +47,9 @@
     <script>
       $(document).ready(function() {
         $("a.remove").click(function(e) {
+          var url = $(this).attr('href');
           $(this).parent().remove();
+          $.get(url);
           return false;
         });
       });
