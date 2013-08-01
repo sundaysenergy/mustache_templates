@@ -29,7 +29,7 @@
             <a href="{{{cape_io.flag_url}}}removed&id={{_id}}&index={{_index}}&type={{_type}}&result=json" class="remove" title="REMOVE">
               <i class="icon-ban-circle"></i>
             </a>
-            <a href="{{{cape_io.flag_url}}}added&id={{_id}}&index={{_index}}&type={{_type}}" class="add" title="ADD">
+            <a href="{{{cape_io.flag_url}}}added&id={{_id}}&index={{_index}}&type={{_type}}&result=json" class="add" title="ADD">
               <i class="icon-thumbs-up"></i>
             </a>
           </div>
@@ -46,12 +46,21 @@
 
     <script>
       $(document).ready(function() {
+        var list_type = {{cape_io.list_type}}
         $("a.remove").click(function(e) {
           var url = $(this).attr('href');
           $(this).parent().remove();
           $.get(url);
           return false;
         });
+        if ('pending' == list_type) {
+          $("a.add").click(function(e) {
+            var url = $(this).attr('href');
+            $(this).parent().remove();
+            $.get(url);
+            return false;
+          });
+        }
       });
     </script>
 
