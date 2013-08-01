@@ -47,7 +47,7 @@
     <script>
       $(document).ready(function() {
         $("a.remove").click(function(e) {
-          $(this).remove();
+          $(this).parent().remove();
           return false;
         });
       });
