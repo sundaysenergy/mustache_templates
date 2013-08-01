@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
@@ -17,9 +18,13 @@
           <a href="{{{_source.link}}}" title="{{_source.caption.text}}" class="image" target="_blank">
             <img src="{{{_source.images.low_resolution.url}}}" alt="{{_id}}" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" class="img-thumbnail col-lg-2" />
           </a>
+          <a href="{{{cape_io.flag_url}}}removed&id={{_id}}&index{{_index}}&type={{_type}}" class="remove">
+            <i class="icon-ban-circle"></i>
+          </a>
         {{/hits.hits}}
 
       </div>
+      <p>{{took}}</p>
     </div>
 
     <!-- JavaScript plugins (requires jQuery) -->
