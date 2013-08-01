@@ -43,5 +43,15 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $("a.remove").click(function(e) {
+          $(this).remove();
+          return false;
+        });
+      });
+    </script>
+
   </body>
 </html>
