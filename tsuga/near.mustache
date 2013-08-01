@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Instagram Photos Near Tsuga</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" media="screen">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Instagram Photos Near Tsuga</h1>
+
+      <div class="row">
+
+        {{#hits.hits}}
+          <a href="{{{_source.link}}}" title="{{_source.caption.text}}" class="image" target="_blank">
+            <img src="{{{_source.images.low_resolution.url}}}" alt="{{_id}}" width="{{_source.images.low_resolution.width}}" height="{{_source.images.low_resolution.height}}" class="img-thumbnail col-lg-2" />
+          </a>
+        {{/hits.hits}}
+
+      </div>
+    </div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+  </body>
+</html>
