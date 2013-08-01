@@ -46,7 +46,7 @@
 
     <script>
       $(document).ready(function() {
-        var list_type = {{cape_io.list_type}}
+        var list_type = '{{cape_io.list_type}}'
         $("a.remove").click(function(e) {
           var url = $(this).attr('href');
           $(this).parent().remove();
