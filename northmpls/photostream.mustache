@@ -133,7 +133,7 @@
     var list_type = '{{cape_io.list_type}}'
     $("a.remove").click(function(e) {
       var url = $(this).attr('href');
-      $(this).parent().remove();
+      $(this).parent().parent().parent().remove();
       $.get(url);
       return false;
     });
