@@ -98,10 +98,10 @@
         <li>
           <ul class="nav nav-pills">
             {{^cape_io.remove_only}}
-              <li><a href="http://cape.webscript.io/flag?action=added&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}" class="btn btn-success btn-mini"><i class="icon-thumbs-up"></i>Approve</a></li>
+              <li><a href="http://cape.webscript.io/flag?action=added&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}&result=json" class="btn btn-success btn-mini add"><i class="icon-thumbs-up"></i>Approve</a></li>
             {{/cape_io.remove_only}}
             {{^cape_io.add_only}}
-              <li><a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}" class="btn btn-danger btn-mini"><i class="icon-ban-circle"></i> Remove</a></li>
+              <li><a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}&result=json" class="btn btn-danger btn-mini remove"><i class="icon-ban-circle"></i> Remove</a></li>
             {{/cape_io.add_only}}
           </ul>
         </li>
@@ -131,6 +131,22 @@
       </li>
     </ul>
   </div>
+    <script>
+      $(document).ready(function() {
+        $("a.remove").click(function(e) {
+          var url = $(this).attr('href');
+          $(this).parent().parent().parent().parent().parent().remove();
+          $.get(url);
+          return false;
+        });
+        $("a.add").click(function(e) {
+          var url = $(this).attr('href');
+          $(this).parent().parent().parent().parent().parent().remove();
+          $.get(url);
+          return false;
+        });
+      });
+    </script>
 {{/cape_io.admin}}
 
 <!-- ! COMPILED TIME {{ cape_io.timestring }} !-->
