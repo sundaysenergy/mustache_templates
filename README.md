@@ -5,6 +5,6 @@ The place to put your mustache template for use with the cape easy compile featu
 
 The idea is to apply a source data feed against the template.
 
-Templates are stored here. Why not?
+This is the template repository for templates we create. How do we import from other users? A static site on dropbox or github...
 
 Your templates are accessible via http://templates.cape.io
