@@ -1,4 +1,4 @@
-mustache_templates
+templates.cape.io
 ==================
 
 The place to put your mustache template for use with the cape easy compile feature.
