@@ -19,18 +19,11 @@
       <div class="row">
 
         <div id="carousel-generic" class="carousel slide">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-generic" data-slide-to="2"></li>
-          </ol>
-
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             {{#contents}}
             <div class="item {{class}}">
-              <img src="{{img_resize_host}}{{path}}" alt="{{alt}}">
+              <img src="{{img_resize_host}}/600x600{{path}}" alt="{{alt}}">
               <div class="carousel-caption">
               </div>
             </div>
@@ -57,7 +50,7 @@
     <script type="text/javascript">
     $('document').ready(function() {
       $('#carousel-generic').carousel({
-        interval: 2000,
+        interval: 5000,
         wrap: true
       });
     });
