@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" media="screen">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
-
+<!-- compile url:  -->
   <body>
     <div class="container">
       <h1>Title</h1>
@@ -20,7 +20,7 @@
 
         <ul>
         {{#contents}}
-          <li><img src="http:/{{path}}" alt="rev" /></li>
+          <li><img src="{{img_resize_host}}{{path}}" alt="rev" /></li>
         {{/contents}}
         </ul>
 
