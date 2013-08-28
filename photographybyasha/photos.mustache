@@ -56,13 +56,9 @@
       // $( "#carousel-generic .carousel-inner .item" ).each(function( index ) {
       //    $(this).css("margin-top",-(($(this).height())/4) + 'px');
       // });
-      $('img').bind("contextmenu",function(e){
+      $('img').on("contextmenu mousedown",function(e){
           return false;
       });
-      $('img').bind("mousedown",function(e){
-          return false;
-      });
-    });
     });
     </script>
   </body>
