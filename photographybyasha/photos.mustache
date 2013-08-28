@@ -57,6 +57,7 @@
       //    $(this).css("margin-top",-(($(this).height())/4) + 'px');
       // });
       $('img').on("contextmenu mousedown",function(e){
+          e.preventDefault();
           return false;
       });
     });
