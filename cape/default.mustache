@@ -17,20 +17,15 @@
   <body>
     <div class="container">
       <h1>{{data.title}}</h1>
-      <table class="table">
-        <thead>
-          <tr><td>Make ID</td><td>Domain</td><td>Edit</td></tr>
-        </thead>
-        <tbody>
-          {{#make_files}}
-            <tr>
-              <td><h3><a href="http://{{_filename}}.cape.io">{{_filename}}</a><small><a href="{{&link}}">.json</a></small></h3></td>
-              <td><a href="http://">{{&domain}}</a></td>
-              <td><a href="{{&edit}}">Edit on Github</a></td>
-            </tr>
-          {{/make_files}}
-        </tbody>
-      </table>
+
+        {{> page_html }}
+
+        {{#content}}
+          <div class="row">
+            {{{ content }}}
+          </div> <!-- /.row -->
+        {{/content}}
+
     </div>
 
     <!-- JavaScript plugins (requires jQuery) -->
