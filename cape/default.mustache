@@ -15,14 +15,32 @@
   </head>
 
   <body>
+    {{#data.navbar}}
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">{{data.title}}</a>
+          <ul class="nav">
+            {{#data.nav}}
+            <li><a href="{{link}}">{{title}}</a></li>
+            {{/data.nav}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {{/data.navbar}}
+
     <div class="container">
+      {{> page_html }}
 
-        {{> page_html }}
+      {{#content}}
+        {{{ content }}}
+      {{/content}}
+    </div>
 
-        {{#content}}
-          {{{ content }}}
-        {{/content}}
-
+    <hr>
+    <div class="footer">
+      <p>2014 &copy; {{copy}} All Rights Reserved.</p>
     </div>
 
     <!-- JavaScript plugins (requires jQuery) -->
