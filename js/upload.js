@@ -3,7 +3,10 @@ window.log = function() {
 };
 
 $(document).ready(function() {
-  $.getJSON('http://cf.cape.io/du.timlupfer.com', function(data) {
+  var server = 'http://cf.cape.io/'
+  var container_bucket = 'du.timlupfer.com'
+  var endpoint = server+container_bucket
+  $.getJSON(endpoint, function(data) {
     var cdnuri = data.container.cdnUri;
     for (var i=0; i<data.files.length; i++) {
       data.files[i].cdn = data.container.cdnUri;
@@ -20,7 +23,7 @@ $(document).ready(function() {
         var filename = $(this).closest('tr').find('td.path').html();
         $(this).closest('tr').remove();
         $.ajax({
-          url: 'http://cf.cape.io/du.timlupfer.com/'+encodeURIComponent(filename),
+          url: endpoint+encodeURIComponent(filename),
           type: 'DELETE',
           success: function(result) {
             log(result);
