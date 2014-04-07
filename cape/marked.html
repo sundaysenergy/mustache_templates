@@ -10,12 +10,12 @@ title: Upload Files
   <h1>Demo Page for <a href="https://github.com/chjj/marked/">Marked</a></h1>
 </div>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="leftContainer">
       <div class="label">
         <span>Input</span>
       </div>
       <textarea id="input" cols="80" rows="20" class="pane">
-      Marked - Markdown Parser
+Marked - Markdown Parser
 ========================
 
 [Marked] lets you convert [Markdown] into HTML.  Markdown is a simple text format whose goal is to be very easy to read and write, even when not converted to HTML.  This demo page will let you type anything you like and see how it gets converted.  Live.  No more waiting around.
@@ -54,7 +54,7 @@ Ready to start writing?  Either start changing stuff on the left or
 </textarea>
     </div> <!-- leftContainer -->
 
-    <div class="col-sm-6">
+    <div class="col-sm-6" id="rightContainer">
       <div class="label">
         <select id="outputType">
           <option value="preview">Preview</option>
