@@ -1,5 +1,45 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	background-color: #DDF;
+	height: 100%;
+}
+
 textarea {
 	font-family: monospace;
+}
+
+
+#bothContainers {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin-top: 2.4em;
+	width: 100%;
+}
+
+#leftContainer, #rightContainer {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 48.5%;
+	top: 0;
+	bottom: 0;
+}
+
+#leftContainer {
+	float: left;
+	left: 1%;
+}
+
+#rightContainer {
+	float: right;
+	right: 1%;
+}
+
+#rightContainer > * {
+	float: right;
 }
 
 .label {
