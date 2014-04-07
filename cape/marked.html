@@ -6,17 +6,16 @@ css:
   - "http://templates.cape.io/css/marked.css"
 title: Upload Files
 ---
-<div class="row">
 <div id="header">
   <h1>Demo Page for <a href="https://github.com/chjj/marked/">Marked</a></h1>
 </div>
-
-  <div id="bothContainers">
-    <div id="leftContainer">
+<div class="row">
+    <div class="col-sm-6">
       <div class="label">
         <span>Input</span>
       </div>
-      <textarea id="input" cols="80" rows="20" class="pane">Marked - Markdown Parser
+      <textarea id="input" cols="80" rows="20" class="pane">
+      Marked - Markdown Parser
 ========================
 
 [Marked] lets you convert [Markdown] into HTML.  Markdown is a simple text format whose goal is to be very easy to read and write, even when not converted to HTML.  This demo page will let you type anything you like and see how it gets converted.  Live.  No more waiting around.
@@ -55,7 +54,7 @@ Ready to start writing?  Either start changing stuff on the left or
 </textarea>
     </div> <!-- leftContainer -->
 
-    <div id="rightContainer">
+    <div class="col-sm-6">
       <div class="label">
         <select id="outputType">
           <option value="preview">Preview</option>
@@ -240,5 +239,4 @@ If markdown is too limiting, you can just insert your own <strike>crazy</strike>
   </div>
 </textarea>
 </div> <!-- rightContainer -->
-</div> <!-- bothContainers -->
 </div> <!-- row -->
