@@ -6,7 +6,7 @@ $(document).ready(function() {
   var server = 'http://cf.cape.io/';
   if (!container_bucket) {
     var container_bucket = 'du.timlupfer.com';
-    console.log 'No container_bucket variable found or it is false';
+    console.log('No container_bucket variable found or it is false');
   }
   var endpoint = server+container_bucket;
   $.getJSON(endpoint, function(data) {
