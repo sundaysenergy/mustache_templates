@@ -4,9 +4,12 @@ window.log = function() {
 
 $(document).ready(function() {
   var server = 'http://cf.cape.io/';
-  if (!container_bucket) {
+  if (!window.container_bucket) {
     var container_bucket = 'du.timlupfer.com';
     console.log('No container_bucket variable found or it is false');
+  }
+  else {
+    container_bucket = window.container_bucket
   }
   var endpoint = server+container_bucket;
   $.getJSON(endpoint, function(data) {
