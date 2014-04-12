@@ -3,9 +3,11 @@ window.log = function() {
 };
 
 $(document).ready(function() {
-  var server = 'http://cf.cape.io/'
-  var container_bucket = 'du.timlupfer.com'
-  var endpoint = server+container_bucket
+  var server = 'http://cf.cape.io/';
+  if (!container_bucket) {
+    var container_bucket = 'du.timlupfer.com';
+  }
+  var endpoint = server+container_bucket;
   $.getJSON(endpoint, function(data) {
     var cdnuri = data.container.cdnUri;
     for (var i=0; i<data.files.length; i++) {
