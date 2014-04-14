@@ -3,15 +3,14 @@ window.log = function() {
 };
 
 $(document).ready(function() {
-  var server = 'http://cf.cape.io/';
-  if (!window.container_bucket) {
-    var container_bucket = 'du.timlupfer.com';
+  if (!window.make_id) {
+    var make_id = 'files';
     console.log('No container_bucket variable found or it is false');
   }
   else {
-    container_bucket = window.container_bucket
+    make_id = window.make_id
   }
-  var endpoint = server+container_bucket;
+  var endpoint = 'http://'+make_id+'.cape.io/_cdn';
   $.getJSON(endpoint, function(data) {
     var cdnuri = data.container.cdnUri;
     for (var i=0; i<data.files.length; i++) {
@@ -29,7 +28,7 @@ $(document).ready(function() {
         var filename = $(this).closest('tr').find('td.path').html();
         $(this).closest('tr').remove();
         $.ajax({
-          url: endpoint+encodeURIComponent(filename),
+          url: endpoint+'/'+filename,
           type: 'DELETE',
           success: function(result) {
             log(result);
@@ -93,7 +92,7 @@ $(document).ready(function() {
     var $textAddBtn = $('#text-add-btn');
 
     $fileInput.damnUploader({
-      url: 'http://h2.cape.io/upload/du',
+      url: endpoint + '/upload',
       fieldName: 'file',
       dropBox: $dropBox,
       limit: false,
