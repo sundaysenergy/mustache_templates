@@ -129,7 +129,7 @@ $(document).ready(function() {
       } else {
         $preview = $('<i>no preview</i>');
       }
-
+      ui.file.name = 'files/'+ui.file.name
       // Appending cells to row
       $('<td/>').append($preview).appendTo($row); // Preview
       $('<td/>').text(ui.file.name).appendTo($row); // Filename
