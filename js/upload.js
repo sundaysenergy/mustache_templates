@@ -17,7 +17,7 @@ $(document).ready(function() {
       data.files[i].cdn = data.container.cdnUri;
     }
     var template = Hogan.compile('{{#files}}<tr><td style="width: 15%">{{#image}}<img class="img-responsive" src="{{cdn}}/{{path}}">{{/image}}</td><td class="path">{{path}}</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-download"></i></button> <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td></tr>{{/files}}');
-    var markdown = Hogan.compile('<input type="text" value="{{{markdown}}}" style="border:0; width:100%"><br /><input type="text" value="{{{link}}}" style="border:0; width:100%">');
+    var markdown = Hogan.compile('<h4>Markdown Link</h4><input type="text" value="{{{markdown}}}" style="border:0; width:100%"><br /><h4>Text Link</h4><input type="text" value="{{{link}}}" style="border:0; width:100%">');
     $('div#cffiles tbody.list').append(template.render(data));
     var options = {
       valueNames: [ 'path' ]
