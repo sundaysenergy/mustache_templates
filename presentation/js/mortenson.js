@@ -6,11 +6,13 @@ $(document).ready(function() {
   else {
     make_id = window.make_id
   }
-  var endpoint = 'http://'+make_id+'.cape.io.ld/images.json';
+  var endpoint = 'http://'+make_id+'.cape.io/_view/client_data/_output';
   function update() {
-    $.getJSON('/_view/client_data/_output', function(data) {
-      var template = Hogan.compile($('#slideshow-template').html());
-      $('div#slideshow').append(template.render(data));
+    $.getJSON(endpoint, function(data) {
+      if (data) {
+        var template = Hogan.compile($('#slideshow-template').html());
+        $('div#slideshow').append(template.render(data));
+      }
     });
   }
   setInterval(update, 30000);
