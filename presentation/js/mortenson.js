@@ -11,7 +11,7 @@ $(document).ready(function() {
     $.getJSON(endpoint, function(data) {
       if (data) {
         var template = Hogan.compile($('#slideshow-template').html());
-        $('div#slideshow').append(template.render(data));
+        $('div#slideshow').html(template.render(data));
       }
     });
   }
