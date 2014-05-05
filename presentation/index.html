@@ -16,10 +16,11 @@
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style4.css" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
 
     </head>
     <body id="page">
+      <div id="slideshow">
         <ul class="cb-slideshow">
             <li><span style="background-image: url(images/1.jpg)">Image 01</span><div><h3>se·ren·i·ty</h3></div></li>
             <li><span style="background-image: url(images/2.jpg)">Image 02</span><div><h3>com·po·sure</h3></div></li>
@@ -28,8 +29,21 @@
             <li><span style="background-image: url(images/5.jpg)">Image 05</span><div><h3>qui·e·tude</h3></div></li>
             <li><span style="background-image: url(images/6.jpg)">Image 06</span><div><h3>re·lax·a·tion</h3></div></li>
         </ul>
-        <div class="container">
+      </div>
+      <div class="container">
+      </div>
+      <script type="text/javascript" src="js/mortenson.js"></script>
 
-        </div>
+      <script id="slideshow-template" type="text/x-mustache-template">
+        <!-- // LISTING OF IMAGES -->
+        <ul class="cb-slideshow">
+        {{#images}}
+          <li>
+            <span style="background-image: url({{path}})">Image {{i}}</span><div><h3>{{word}}</h3></div>
+          </li>
+        {{/images}}
+        </ul>
+      </script>
+
     </body>
 </html>
