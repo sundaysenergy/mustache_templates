@@ -1,0 +1,81 @@
+<!-- Template version 2.01 -->
+
+{{#data}}
+  <div class="item row" id="{{id}}">
+    <div class="span2">
+      {{#picture}}
+      <a href="{{link}}" title="{{message}}" class="picture" target="_blank" >
+        <img class="img-circle" alt="{{name}}" src="http://{{_picture.host}}.img.labori.us/c75x75/{{_picture.path}}" width="75" height="75" />
+      </a>
+      {{/picture}}
+    </div>
+    <div class="span10">
+      <ul class="details">
+        <li>
+          <h4><a href="{{link}}" class="" target="_blank">{{name}}</a></h4>
+        </li>
+        <li class="dateAuthor">
+          {{created_time}}<span class="expandedView">, {{caption}}</span>
+        </li>
+        <li class="teaser expandedView">
+          {{description}}
+        </li>
+        <li class="commentsAndMore expandedView">
+          <span class="readMore">
+            <a href="{{link}}" class="button-small" target="_blank">Read More</a>
+          </span>
+        </li>
+      {{#cape_io.admin}}
+        <li class="message">
+          {{message}}
+        </li>
+        <li>
+          <ul class="nav nav-pills">
+            {{^cape_io.remove_only}}
+              <li><a href="http://cape.webscript.io/flag?action=added&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}&result=json" class="btn btn-success btn-mini add"><i class="icon-thumbs-up"></i>Approve</a></li>
+            {{/cape_io.remove_only}}
+            {{^cape_io.add_only}}
+              <li><a href="http://cape.webscript.io/flag?action=removed&index={{_index}}&type={{_type}}&id={{_id}}&list={{cape_io.list}}&api_key={{cape_io.api_key}}&user={{cape_io.user}}&result=json" class="btn btn-danger btn-mini remove"><i class="icon-ban-circle"></i> Remove</a></li>
+            {{/cape_io.add_only}}
+          </ul>
+        </li>
+      {{/cape_io.admin}}
+      </ul>
+    </div>
+  </div>
+{{/data}}
+
+{{#cape_io.admin}}
+  <div class="row">
+    <ul class="nav nav-pills span9 offset3">
+      <li>
+        <a href="http://admin.cape.io/list/{{cape_io.list}}" title="ADMIN!" class="btn btn-primary">ADMIN</a>
+      </li>
+      <li>
+        <a href="http://admin.cape.io/list/{{cape_io.list}}?list_type=list" title="EDIT PREVIEW!" class="btn btn-info">EDIT PREVIEW</a>
+      </li>
+      <li>
+        <a href="http://admin.cape.io/list/{{cape_io.list}}?list_type=preview" title="PREVIEW!" class="btn btn-success">PREVIEW</a>
+      </li>
+      <li>
+        <a href="http://admin.cape.io/list/{{cape_io.list}}?list_type=compile" title="COMPILE!" class="btn btn-warning">COMPILE</a>
+      </li>
+    </ul>
+  </div>
+    <script>
+      $(document).ready(function() {
+        $("a.remove").click(function(e) {
+          var url = $(this).attr('href');
+          $(this).parent().parent().parent().parent().parent().remove();
+          $.get(url);
+          return false;
+        });
+        $("a.add").click(function(e) {
+          var url = $(this).attr('href');
+          $(this).parent().parent().parent().parent().parent().remove();
+          $.get(url);
+          return false;
+        });
+      });
+    </script>
+{{/cape_io.admin}}

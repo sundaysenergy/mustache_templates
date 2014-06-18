@@ -1,0 +1,31 @@
+---
+js:
+  - "//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"
+  - "http://templates.cape.io/js/jquery.parseparams.js"
+css:
+  - "http://templates.cape.io/css/upload.css"
+title: Upload Files
+---
+
+<div class="row">
+  <form id="upload-form" enctype="multipart/form-data">
+    <input type="file" name="my_file" />
+    <input type="submit" value="Upload">
+  </form>
+</div>
+
+<!-- JavaScript plugins (requires jQuery) -->
+<script type="text/javascript">
+  $(function() {
+    console.log()
+    $('#upload-form').transloadit({
+      wait: true,
+
+      params: {
+        auth: { key: "2e44dd10f24f11e3a2c01915ec2c5699" },
+        template_id: "{{tid}}"
+      }
+    });
+  });
+</script>
+
