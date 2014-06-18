@@ -2,30 +2,158 @@
 js:
   - "//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"
   - "http://templates.cape.io/js/jquery.parseparams.js"
+  - "//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"
+  - "//cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.0/hogan.js"
 css:
   - "http://templates.cape.io/css/upload.css"
 title: Upload Files
 ---
-
+<h1>Upload files</h1>
 <div class="row">
-  <form id="upload-form" enctype="multipart/form-data">
-    <input type="file" name="my_file" />
-    <input type="submit" value="Upload">
+  <form class="form-inline" role="form" id="upload-form">
+    <div class="form-group">
+      <input type="file" name="my_file" />
+      <input type="submit" value="Upload" style="display:none;">
+    </div>
   </form>
+</div>
+
+<div class="row" id="details" style="display:none;">
+</div>
+
+<div class="row" style="margin-top: 100px">
+
+  <h2>Existing Files</h2>
+
+  <div id="cffiles">
+    <input class="search" placeholder="Search"/>
+    <table class="table">
+    <thead>
+      <th>Preview</th>
+      <th>Filename</th>
+      <th>Links</th>
+      <th>Delete?</th>
+    </thead>
+    <tbody class="list"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Markdown and text links</h4>
+      </div>
+      <div class="modal-body"></div>
+    </div>
+  </div>
 </div>
 
 <!-- JavaScript plugins (requires jQuery) -->
 <script type="text/javascript">
-  $(function() {
-    console.log()
-    $('#upload-form').transloadit({
-      wait: true,
+  document.addEventListener('DOMContentLoaded', function() {
+    $(function() {
+      var template = Hogan.compile($('#file-list').html());
+      var markdown = Hogan.compile($('#markdown-info').html());
+      var details_template = Hogan.compile($('#details-template').html());
+      var $list = $('div#cffiles tbody.list');
+      var file_data = {}
+      var endpoint = 'http://{{make_id}}.cape.io/_cdn';
+      var list_options = {
+        valueNames: [ 'path' ]
+      };
 
-      params: {
-        auth: { key: "2e44dd10f24f11e3a2c01915ec2c5699" },
-        template_id: "{{tid}}"
+      $.getJSON(endpoint+'/files', function(data) {
+        file_data = data;
+        update_list();
+      });
+
+      var uploaded = function(assembly) {
+        var results = assembly.results[":original"];
+        console.log(results);
+        $('div#details').html(details_template.render({results: assembly.results[":original"]}));
+        results[0].path = results[0].remote_path;
+        results[0].image = (results[0].mime == "image/jpeg" || results[0].mime == "image/png" || results[0].mime == "image/gif")
+        file_data.files.push(results[0])
+        update_list();
       }
+
+      var update_list = function() {
+        var new_html = template.render(file_data)
+        //console.log(new_html);
+        //console.log($list);
+        $list.html(new_html);
+        $('button .fa-download').parent().on('click touch', function(e) {
+          var md_data = {
+            path: $(this).closest('tr').find('td.path').html(),
+            image: ($(this).closest('tr').find('td:nth-of-type(1)').html().length > 0),
+            cdnUri: file_data.container.cdnUri
+          }
+          // console.log(converted);
+          $('div.modal-body').html(markdown.render(md_data));
+          $('div.modal-body input').each(function() {
+            $(this).on('click', function() {
+              $(this).select();
+            });
+          });
+        });
+        $('button .fa-trash-o').parent().on('click touch', function(e) {
+          var filename = $(this).closest('tr').find('td.path').html();
+          $(this).closest('tr').remove();
+          $.ajax({
+            url: endpoint+'/'+filename,
+            type: 'DELETE',
+            success: function(result) {
+              console.log(result);
+            }
+          });
+        });
+        var cffiles = new List('cffiles', list_options)
+      }
+      $('#upload-form').transloadit({
+        wait: true,
+        triggerUploadOnFileSelection: true,
+        autoSubmit: false,
+        processZeroFiles: false,
+        onSuccess: uploaded,
+        params: {
+          auth: { key: "2e44dd10f24f11e3a2c01915ec2c5699" },
+          template_id: "{{tid}}",
+          notify_url: "http://webhook.webscript.io"
+        }
+      });
     });
-  });
+  }, false);
+
 </script>
+{{=<% %>=}}
+<script id="details-template" type="text/x-mustache-template">
+  <h2>Upload results</h2>
+  {{#results}}
+  <ul>
+    <li>remote_path: {{remote_path}}</li>
+    <li>mime: {{mime}}</li>
+    <li>url: {{url}}</li>
+    <li>size: {{size}}</li>
+  </ul>
+  {{/results}}
+</script>
+
+<script type="text/x-mustache-template" id="file-list">
+  {{#files}}<tr>
+    <td style="width: 15%">{{#image}}<img class="img-responsive" src="{{container.cdnUri}}/{{path}}">{{/image}}</td>
+    <td class="path">{{path}}</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-download"></i></button> </td>
+    <td> <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td>
+  </tr>{{/files}}
+</script>
+
+<script type="text/x-mustache-template" id="markdown-info">
+  <h4>Markdown Link</h4>
+  <input type="text" value="{{#image}}!{{/image}}[{{path}}]({{cdnUri}}/{{path}})" style="border:0; width:100%"><br />
+  <h4>Text Link</h4>
+  <input type="text" value="{{cdnUri}}/{{path}}" style="border:0; width:100%">
+</script>
+<%={{ }}=%>
 
